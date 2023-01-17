@@ -1,3 +1,3 @@
 ﻿
-using var game = new Øvelser.Game1();
+using var game = new Øvelser.GameWorld();
 game.Run();

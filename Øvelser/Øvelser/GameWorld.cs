@@ -4,12 +4,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Øvelser
 {
-    public class Game1 : Game
+    public class GameWorld : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        public Game1()
+        private Player player;
+
+        public GameWorld()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -19,7 +21,7 @@ namespace Øvelser
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            player = new Player();
             base.Initialize();
         }
 
@@ -28,6 +30,7 @@ namespace Øvelser
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            player.LoadContent(Content);
         }
 
         protected override void Update(GameTime gameTime)
@@ -45,6 +48,12 @@ namespace Øvelser
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
+            _spriteBatch.Begin();
+
+            player.Draw(_spriteBatch);
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
