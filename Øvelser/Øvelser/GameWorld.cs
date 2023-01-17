@@ -9,6 +9,9 @@ namespace Øvelser
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        /// <summary>
+        /// Opretter en Player variabel
+        /// </summary>
         private Player player;
 
         public GameWorld()
@@ -21,6 +24,8 @@ namespace Øvelser
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+            //Instantierer spillet objektet
             player = new Player();
             base.Initialize();
         }
@@ -51,6 +56,8 @@ namespace Øvelser
 
             _spriteBatch.Begin();
 
+            //Vi tegner spiller variablen, det er vigtigt at vi husker spritebatch begin inden vi starter med at tegne
+            //og spritebatch.End når vi er færdige med at tegne
             player.Draw(_spriteBatch);
 
             _spriteBatch.End();
